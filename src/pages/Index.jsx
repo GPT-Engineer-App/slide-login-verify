@@ -49,17 +49,17 @@ const Index = () => {
   };
 
   return (
-    <Flex height="100vh" p={4}>
-      <Box flex="1">
+    <Flex height="100vh" p={4} direction={{ base: "column", md: "row" }}>
+      <Box flex="1" bgGradient="linear(to-r, blue.200, purple.500)">
         <Image src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxsYW5kc2NhcGV8ZW58MHx8fHwxNzE0MTQxMDUxfDA&ixlib=rb-4.0.3&q=80&w=1080" />
       </Box>
       <VStack flex="1" spacing={4} align="stretch">
-        <IconButton aria-label="Toggle language" icon={<FaLanguage />} onClick={toggleLanguage} alignSelf="flex-end" />
-        <IconButton aria-label="Toggle color mode" icon={colorMode === "light" ? <FaMobileAlt /> : <FaPlus />} onClick={toggleColorMode} alignSelf="flex-end" />
+        <IconButton aria-label="Toggle language" icon={<FaLanguage />} onClick={toggleLanguage} alignSelf="flex-end" size="lg" />
+        <IconButton aria-label="Toggle color mode" icon={colorMode === "light" ? <FaMobileAlt /> : <FaPlus />} onClick={toggleColorMode} alignSelf="flex-end" size="lg" />
         {page === 1 ? (
           <>
             <Input placeholder={language === "EN" ? "Enter your email" : "输入您的邮箱"} value={email} onChange={(e) => setEmail(e.target.value)} />
-            <Button rightIcon={<FaArrowRight />} onClick={handleEmailSubmit}>
+            <Button rightIcon={<FaArrowRight />} onClick={handleEmailSubmit} colorScheme="blue">
               {language === "EN" ? "Send Code" : "发送验证码"}
             </Button>
           </>
